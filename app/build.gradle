@@ -1,0 +1,35 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlinx-serialization'
+    id 'dagger.hilt.android.plugin'
+}
+
+apply from: "$rootProject.projectDir/shared.gradle"
+
+android {
+    namespace 'ru.anarkh.modularization.demo'
+    defaultConfig {
+        applicationId "ru.anarkh.modularization.demo"
+    }
+}
+
+ext.deps_hilt()
+ext.deps_androidX()
+ext.deps_kotlin()
+ext.deps_serialization()
+ext.deps_lifecycle()
+ext.deps_retrofit()
+
+dependencies {
+    implementation project(':feature:navigation')
+    implementation project(':feature:detail')
+    implementation project(':feature:apod')
+    implementation project(':feature:rover')
+
+    implementation project(':domain:apod')
+    implementation project(':domain:rover')
+
+    implementation project(':core:ui')
+}

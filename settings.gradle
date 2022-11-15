@@ -1,0 +1,12 @@
+rootProject.name = "Modularization_demo"
+include ':app'
+// Features
+include ':feature:apod'
+include ':feature:rover'
+include ':feature:navigation'
+include ':feature:detail'
+// Domain
+include ':domain:apod'
+include ':domain:rover'
+// Core
+include ':core:ui'

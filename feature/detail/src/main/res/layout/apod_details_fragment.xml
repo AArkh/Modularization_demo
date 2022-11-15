@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            tools:background="@android:color/holo_red_dark"
+            tools:layout_height="200dp" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/MyHeaderTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="TITLE" />
+
+        <TextView
+            android:id="@+id/date"
+            style="@style/MyDefaultTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="12-12-2023" />
+
+        <TextView
+            android:id="@+id/explanation"
+            style="@style/MyDefaultTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="What dark structures arise within the Pelican Nebula? On the whole, the nebula appears like a bird (a pelican) and is seen toward the constellation of a different bird: Cygnus, a Swan. But inside, the Pelican Nebula is a place lit up by new stars and befouled by dark dust. Smoke-sized dust grains start as simple carbon compounds formed in the cool atmospheres of young stars but are dispersed by stellar winds and explosions.  Two impressive Herbig-Haro jets are seen emitted by the star HH 555 on the right, and these jets are helping to destroy the light year-long dust pillar that contains it. " />
+
+    </LinearLayout>
+</ScrollView>

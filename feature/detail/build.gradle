@@ -1,0 +1,25 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+apply from: "$rootProject.projectDir/shared.gradle"
+
+android {
+    namespace 'ru.anarkh.modularization.apod.detail.impl'
+}
+
+ext.deps_hilt()
+ext.deps_androidX()
+ext.deps_kotlin()
+ext.deps_lifecycle()
+ext.deps_retrofit()
+ext.deps_glide()
+
+dependencies {
+    implementation project(':domain:apod')
+    implementation project(':domain:rover')
+    implementation project(':core:ui')
+}
