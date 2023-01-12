@@ -8,6 +8,4 @@ interface ApodListRouter {
     fun createApodListFragment(): Fragment = ApodFragment()
 
     fun openApodList()
-
-    fun openApodDetails(apodNetModel: ApodNetModel)
 }

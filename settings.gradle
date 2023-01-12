@@ -4,9 +4,11 @@ include ':app'
 include ':feature:apod'
 include ':feature:rover'
 include ':feature:navigation'
-include ':feature:detail'
+include ':feature:details_2:api'
+include ':feature:details_2:impl'
 // Domain
 include ':domain:apod'
 include ':domain:rover'
 // Core
 include ':core:ui'
+include ':core:navigation_2'

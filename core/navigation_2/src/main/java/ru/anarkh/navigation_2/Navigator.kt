@@ -1,27 +1,20 @@
-package ru.anarkh.modularization.apod
+package ru.anarkh.navigation_2
 
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import ru.anarkh.modularization.core.ui.R
-import ru.anarkh.modularization.domain.apod.ApodNetModel
-import ru.anarkh.modularization.domain.rover.RoverPhoto
-import ru.anarkh.modularization.rover.RoverListRouter
 import javax.inject.Inject
 
-class GodRouter @Inject constructor(
-    activity: FragmentActivity
-) : ApodListRouter, RoverListRouter {
+class Navigator @Inject constructor(activity: FragmentActivity){
 
     private val fragmentManager = activity.supportFragmentManager
 
-    override fun openApodList() {
+    /**
+     * Here also should be Screen, but let's leave Fragment for now
+     */
+    fun openScreen(fragment: Fragment) {
         fragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, createApodListFragment())
-            .commit()
-    }
-
-    override fun openRoverList() {
-        fragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, createRoverListFragment())
+            .add(R.id.fragment_container, fragment)
             .commit()
     }
 

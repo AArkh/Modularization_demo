@@ -6,7 +6,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 import ru.anarkh.modularization.apod.ApodListRouter
 import ru.anarkh.modularization.apod.GodRouter
-import ru.anarkh.modularization.apod.detail.ApodDetailsRouter
 import ru.anarkh.modularization.rover.RoverListRouter
 
 /**
@@ -16,9 +15,6 @@ import ru.anarkh.modularization.rover.RoverListRouter
 @Module
 @InstallIn(ActivityComponent::class)
 abstract class DetailsModule {
-
-    @Binds
-    abstract fun bindApodDetailsRouter(impl: GodRouter): ApodDetailsRouter
 
     @Binds
     abstract fun bindApodListRouter(impl: GodRouter): ApodListRouter

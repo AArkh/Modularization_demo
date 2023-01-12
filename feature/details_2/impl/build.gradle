@@ -8,7 +8,7 @@ plugins {
 apply from: "$rootProject.projectDir/shared.gradle"
 
 android {
-    namespace 'ru.anarkh.modularization.apod.detail.impl'
+    namespace 'ru.anarkh.details_2.impl'
 }
 
 ext.deps_hilt()
@@ -19,7 +19,6 @@ ext.deps_retrofit()
 ext.deps_glide()
 
 dependencies {
-    implementation project(':domain:apod')
-    implementation project(':domain:rover')
     implementation project(':core:ui')
+    implementation project(':feature:details_2:api')
 }

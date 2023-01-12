@@ -9,7 +9,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import ru.anarkh.details_2.api.DetailsNetModel
+import ru.anarkh.details_2.api.DetailsScreenApi
 import ru.anarkh.modularization.apod.impl.R
+import ru.anarkh.navigation_2.Navigator
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -18,7 +21,10 @@ class ApodFragment : Fragment(R.layout.apod_fragment) {
     private val viewModel: ApodViewModel by viewModels()
 
     @Inject
-    lateinit var detailsRouter: ApodListRouter
+    lateinit var navigator: Navigator
+
+    @Inject
+    lateinit var detailsScreen: DetailsScreenApi
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -26,8 +32,14 @@ class ApodFragment : Fragment(R.layout.apod_fragment) {
         val layoutManager = GridLayoutManager(requireContext(), 2)
         recyclerView.layoutManager = layoutManager
         val adapter = ApodListAdapter()
-        adapter.setOnImageClickListener = {
-            detailsRouter.openApodDetails(it)
+        adapter.setOnImageClickListener = { model ->
+            model.apply {
+                navigator.openScreen(
+                    detailsScreen.getDetailsScreen(
+                        DetailsNetModel(copyright, date, explanation, hdurl, mediaType, title, url)
+                    )
+                )
+            }
         }
         recyclerView.adapter = adapter
         lifecycleScope.launchWhenResumed {

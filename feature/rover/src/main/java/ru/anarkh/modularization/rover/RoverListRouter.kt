@@ -8,6 +8,4 @@ interface RoverListRouter {
     fun createRoverListFragment(): Fragment = RoverFragment()
 
     fun openRoverList()
-
-    fun openRoverDetails(roverPhoto: RoverPhoto)
 }

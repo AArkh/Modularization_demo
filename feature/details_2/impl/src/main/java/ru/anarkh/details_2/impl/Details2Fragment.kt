@@ -1,4 +1,4 @@
-package ru.anarkh.modularization.apod.detail
+package ru.anarkh.details_2.impl
 
 import android.os.Bundle
 import android.view.View
@@ -9,19 +9,15 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import dagger.hilt.android.AndroidEntryPoint
 import ru.anarkh.core.ui.dpToPx
-import ru.anarkh.modularization.apod.detail.impl.R
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class ApodDetailsFragment : Fragment(R.layout.apod_details_fragment) {
-
-    @Inject
-    lateinit var router: ApodDetailsRouter
+class Details2Fragment : Fragment(R.layout.fragment_details_2) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val model = router.parseDetailsArguments(requireArguments())
+        val model = parseDetailsArguments(requireArguments())
 
         val image = view.findViewById<AppCompatImageView>(R.id.image)
         val title = view.findViewById<TextView>(R.id.title)
@@ -38,5 +34,14 @@ class ApodDetailsFragment : Fragment(R.layout.apod_details_fragment) {
             .transform(RoundedCorners(requireContext().dpToPx(16)))
             .placeholder(ru.anarkh.modularization.core.ui.R.drawable.placeholder)
             .into(image)
+    }
+
+    private fun parseDetailsArguments(bundle: Bundle): Details2UiModel {
+        return Details2UiModel(
+            imageUrl = bundle.getString(DetailsScreenImpl.APOD_IMAGE_URL_KEY, ""),
+            title = bundle.getString(DetailsScreenImpl.APOD_TITLE_KEY, ""),
+            data = bundle.getString(DetailsScreenImpl.APOD_DATE_KEY, ""),
+            explanation = bundle.getString(DetailsScreenImpl.APOD_EXPLANATION_KEY, ""),
+        )
     }
 }

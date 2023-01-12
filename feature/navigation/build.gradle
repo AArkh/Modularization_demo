@@ -16,7 +16,6 @@ ext.deps_androidX()
 
 dependencies {
     implementation project(':feature:apod')
-    implementation project(':feature:detail')
     implementation project(':feature:rover')
 
     implementation project(':domain:apod')

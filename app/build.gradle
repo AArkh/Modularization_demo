@@ -24,7 +24,8 @@ ext.deps_retrofit()
 
 dependencies {
     implementation project(':feature:navigation')
-    implementation project(':feature:detail')
+    implementation project(':feature:details_2:api')
+    implementation project(':feature:details_2:impl')
     implementation project(':feature:apod')
     implementation project(':feature:rover')
 
@@ -32,4 +33,5 @@ dependencies {
     implementation project(':domain:rover')
 
     implementation project(':core:ui')
+    implementation project(':core:navigation_2')
 }

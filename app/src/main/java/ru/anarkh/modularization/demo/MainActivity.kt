@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import ru.anarkh.modularization.apod.GodRouter
+import ru.anarkh.navigation_2.Navigator
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -12,6 +13,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     @Inject
     lateinit var god: GodRouter
+
+    @Inject
+    lateinit var navigator: Navigator
 
     private var currentScreenId = R.id.apod_nav
 
@@ -24,7 +28,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     override fun onBackPressed() {
-        if (!god.onBackPressed()) {
+        if (!god.onBackPressed() && !navigator.onBackPressed()) {
             super.onBackPressed()
         }
     }
