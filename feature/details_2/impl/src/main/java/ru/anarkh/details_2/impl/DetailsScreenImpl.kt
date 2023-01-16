@@ -1,7 +1,7 @@
 package ru.anarkh.details_2.impl
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import ru.anarkh.base.FragmentScreen
 import ru.anarkh.details_2.api.DetailsNetModel
 import ru.anarkh.details_2.api.DetailsScreenApi
 import ru.anarkh.details_2.api.RoverDetailsPhoto
@@ -9,16 +9,26 @@ import javax.inject.Inject
 
 class DetailsScreenImpl @Inject constructor(): DetailsScreenApi {
 
-    override fun getDetailsScreen(model: DetailsNetModel): Fragment {
-        val fragment = Details2Fragment()
-        fragment.arguments = createBundle(model)
-        return fragment
+    override fun getDetailsScreen(model: DetailsNetModel): FragmentScreen {
+        return FragmentScreen(
+            fragmentClass = Details2Fragment::class.java,
+            args = createBundle(model),
+            animations = FragmentScreen.FragmentAnimations(
+                android.R.anim.slide_in_left,
+                android.R.anim.slide_out_right,
+            )
+        )
     }
 
-    override fun getDetailsScreen(photo: RoverDetailsPhoto): Fragment {
-        val fragment = Details2Fragment()
-        fragment.arguments = createBundle(photo)
-        return fragment
+    override fun getDetailsScreen(photo: RoverDetailsPhoto): FragmentScreen {
+        return FragmentScreen(
+            fragmentClass = Details2Fragment::class.java,
+            args = createBundle(photo),
+            animations = FragmentScreen.FragmentAnimations(
+                android.R.anim.slide_in_left,
+                android.R.anim.slide_out_right,
+            )
+        )
     }
 
     private fun createBundle(roverDetailsPhoto: RoverDetailsPhoto): Bundle {

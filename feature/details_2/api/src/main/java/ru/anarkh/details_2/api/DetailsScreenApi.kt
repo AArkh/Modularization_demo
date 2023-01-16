@@ -1,6 +1,6 @@
 package ru.anarkh.details_2.api
 
-import androidx.fragment.app.Fragment
+import ru.anarkh.base.FragmentScreen
 
 
 interface DetailsScreenApi {
@@ -8,7 +8,7 @@ interface DetailsScreenApi {
     /**
      * Should be container, like abstract Screen, but let's have Fragment to simplify
      */
-    fun getDetailsScreen(model: DetailsNetModel): Fragment
+    fun getDetailsScreen(model: DetailsNetModel): FragmentScreen
 
-    fun getDetailsScreen(photo: RoverDetailsPhoto): Fragment
+    fun getDetailsScreen(photo: RoverDetailsPhoto): FragmentScreen
 }

@@ -19,6 +19,7 @@ ext.deps_retrofit()
 ext.deps_glide()
 
 dependencies {
+    implementation project(':core:base')
     implementation project(':core:ui')
     implementation project(':feature:details_2:api')
 }

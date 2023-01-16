@@ -12,3 +12,4 @@ include ':domain:rover'
 // Core
 include ':core:ui'
 include ':core:navigation_2'
+include ':core:base'
